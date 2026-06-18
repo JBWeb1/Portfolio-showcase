@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work — WebCraft Studio Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A0F1E;
+    --slate: #1E2A3B;
+    --cyan: #00D4FF;
+    --cyan-dim: rgba(0,212,255,0.1);
+    --gold: #C9A84C;
+    --off-white: #F0EDE6;
+    --muted: #7A8BA0;
+    --card-bg: #0f1825;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--off-white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 48px;
+    background: rgba(10,15,30,0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0,212,255,0.07);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.35rem; letter-spacing: 0.1em;
+    color: var(--off-white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--cyan); }
+  .nav-cta {
+    background: transparent; border: 1px solid var(--cyan);
+    color: var(--cyan); padding: 8px 22px;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-cta:hover { background: var(--cyan); color: var(--navy); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 120px 24px 80px;
+    overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; top: 40%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse, rgba(0,212,255,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--cyan);
+    margin-bottom: 22px; font-weight: 500; position: relative; z-index: 1;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.8rem, 11vw, 8.5rem);
+    line-height: 0.92; letter-spacing: 0.02em;
+    color: var(--off-white); margin-bottom: 10px;
+    position: relative; z-index: 1;
+  }
+  .hero-title .accent { color: var(--cyan); }
+  .hero-subtitle {
+    max-width: 500px; font-size: 1rem; line-height: 1.72;
+    color: var(--muted); margin: 22px auto 44px;
+    position: relative; z-index: 1;
+  }
+  .hero-actions {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    justify-content: center; position: relative; z-index: 1;
+  }
+  .btn-primary {
+    background: var(--cyan); color: var(--navy);
+    padding: 13px 34px; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent; color: var(--off-white);
+    padding: 13px 34px; font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; border: 1px solid rgba(240,237,230,0.18);
+    transition: border-color 0.2s, color 0.2s; display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+  .scroll-hint {
+    position: absolute; bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--muted); font-size: 0.68rem;
+    letter-spacing: 0.2em; text-transform: uppercase; z-index: 1;
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+  .scroll-line { width: 1px; height: 38px; background: linear-gradient(to bottom, var(--cyan), transparent); }
+  @keyframes pulse { 0%,100%{opacity:0.35} 50%{opacity:1} }
+
+  /* ── STATS ── */
+  .stats-bar {
+    position: relative; z-index: 1;
+    display: flex; justify-content: center;
+    border-top: 1px solid rgba(0,212,255,0.09);
+    border-bottom: 1px solid rgba(0,212,255,0.09);
+    background: rgba(30,42,59,0.35); flex-wrap: wrap;
+  }
+  .stat {
+    flex: 1; min-width: 130px; padding: 26px 28px;
+    text-align: center; border-right: 1px solid rgba(0,212,255,0.07);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 2.3rem;
+    color: var(--cyan); letter-spacing: 0.05em; display: block;
+  }
+  .stat-label {
+    font-size: 0.66rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+    margin-top: 3px; display: block;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    text-align: center; padding: 80px 24px 52px; position: relative; z-index: 1;
+  }
+  .section-eyebrow {
+    font-size: 0.67rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 14px; font-weight: 500;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    letter-spacing: 0.04em; line-height: 1; color: var(--off-white);
+  }
+  .section-title span { color: var(--cyan); }
+
+  /* ── GRID ── */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: rgba(0,212,255,0.05);
+    margin: 0 0 80px;
+    position: relative; z-index: 1;
+  }
+
+  /* ── SITE CARD ── */
+  .site-card {
+    background: var(--card-bg);
+    cursor: pointer; position: relative; overflow: hidden;
+    transition: background 0.25s;
+    display: flex; flex-direction: column;
+  }
+  .site-card:hover { background: #131e2e; }
+  .site-card::after {
+    content: ''; position: absolute; inset: 0;
+    border: 2px solid transparent;
+    transition: border-color 0.28s, box-shadow 0.28s;
+    pointer-events: none; z-index: 3;
+  }
+  .site-card:hover::after {
+    border-color: var(--cyan);
+    box-shadow: inset 0 0 24px rgba(0,212,255,0.05);
+  }
+
+  /* Browser chrome */
+  .browser-chrome {
+    background: #080e1a;
+    padding: 10px 14px 0;
+    border-bottom: 1px solid rgba(0,212,255,0.07);
+    flex-shrink: 0;
+  }
+  .chrome-dots { display: flex; gap: 6px; margin-bottom: 7px; }
+  .chrome-dots span { width: 9px; height: 9px; border-radius: 50%; }
+  .dot-r { background: #FF5F57; }
+  .dot-y { background: #FEBC2E; }
+  .dot-g { background: #28C840; }
+  .chrome-bar {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 3px; padding: 4px 10px;
+    font-size: 0.63rem; color: var(--muted);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 5px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .chrome-bar::before { content: '🔒'; font-size: 0.58rem; opacity: 0.55; }
+
+  /* Preview iframe wrapper */
+  .preview-wrapper {
+    width: 100%; height: 230px;
+    overflow: hidden; position: relative;
+    background: #0a0f1e;
+  }
+  .preview-wrapper iframe {
+    width: 200%; height: 200%;
+    transform: scale(0.5); transform-origin: top left;
+    border: none; pointer-events: none;
+    transition: transform 0.5s ease;
+  }
+  .site-card:hover .preview-wrapper iframe {
+    transform: scale(0.5) translateY(-30px);
+  }
+  /* Gradient fade at bottom of preview */
+  .preview-wrapper::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--card-bg));
+    z-index: 2; pointer-events: none;
+    transition: background 0.25s;
+  }
+  .site-card:hover .preview-wrapper::after {
+    background: linear-gradient(to bottom, transparent, #131e2e);
+  }
+
+  /* Visit overlay */
+  .preview-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.25s;
+    background: rgba(0,212,255,0.04);
+  }
+  .site-card:hover .preview-overlay { opacity: 1; }
+  .overlay-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--cyan); color: var(--navy);
+    padding: 10px 22px; font-size: 0.75rem;
+    font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transform: translateY(6px); transition: transform 0.25s;
+    border: none; cursor: pointer;
+  }
+  .site-card:hover .overlay-btn { transform: translateY(0); }
+  .overlay-btn svg { width: 13px; height: 13px; }
+
+  /* Card body */
+  .card-body { padding: 22px 24px 26px; flex: 1; display: flex; flex-direction: column; }
+  .card-tag {
+    display: inline-block; font-size: 0.6rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--cyan);
+    border: 1px solid rgba(0,212,255,0.28); padding: 3px 9px;
+    margin-bottom: 11px; font-weight: 500;
+  }
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.45rem;
+    letter-spacing: 0.05em; color: var(--off-white);
+    margin-bottom: 8px; line-height: 1.1;
+  }
+  .card-desc {
+    font-size: 0.81rem; line-height: 1.65; color: var(--muted);
+    margin-bottom: 18px; flex: 1;
+  }
+  .card-features {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;
+  }
+  .feat-pill {
+    font-size: 0.6rem; padding: 4px 9px;
+    background: rgba(0,212,255,0.05);
+    border: 1px solid rgba(0,212,255,0.11);
+    color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.74rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--cyan); text-decoration: none;
+    transition: gap 0.2s; margin-top: auto;
+  }
+  .card-link:hover { gap: 13px; }
+  .card-link svg { width: 13px; height: 13px; }
+
+  /* ── PROCESS ── */
+  .process-wrap {
+    max-width: 1100px; margin: 0 auto;
+    padding: 0 0 80px;
+    position: relative; z-index: 1;
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px; background: rgba(0,212,255,0.04);
+  }
+  .process-step {
+    background: var(--navy); padding: 38px 30px;
+  }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 3.8rem;
+    color: rgba(0,212,255,0.07); line-height: 1;
+    margin-bottom: 10px; display: block;
+  }
+  .step-icon { font-size: 1.3rem; margin-bottom: 10px; display: block; }
+  .step-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem;
+    letter-spacing: 0.05em; color: var(--off-white); margin-bottom: 9px;
+  }
+  .step-desc { font-size: 0.8rem; line-height: 1.65; color: var(--muted); }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 100px 24px; text-align: center;
+    background: linear-gradient(to bottom, var(--navy), #060A14);
+    position: relative; overflow: hidden; z-index: 1;
+  }
+  .cta-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(0,212,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 5.8rem);
+    letter-spacing: 0.04em; line-height: 1;
+    color: var(--off-white); margin-bottom: 18px;
+    position: relative; z-index: 1;
+  }
+  .cta-title span { color: var(--cyan); }
+  .cta-sub {
+    font-size: 1rem; color: var(--muted);
+    max-width: 420px; margin: 0 auto 38px; line-height: 1.7;
+    position: relative; z-index: 1;
+  }
+  .cta-actions {
+    display: flex; gap: 14px; justify-content: center;
+    flex-wrap: wrap; position: relative; z-index: 1;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060A14; padding: 36px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(0,212,255,0.07);
+    flex-wrap: wrap; gap: 14px; position: relative; z-index: 1;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif; font-size: 1.15rem;
+    letter-spacing: 0.1em; color: var(--off-white);
+  }
+  .footer-logo span { color: var(--cyan); }
+  .footer-copy { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em; }
+  .footer-contact a {
+    font-size: 0.74rem; color: var(--cyan); text-decoration: none;
+    letter-spacing: 0.08em; transition: opacity 0.2s;
+  }
+  .footer-contact a:hover { opacity: 0.7; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    nav { padding: 15px 18px; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    footer { padding: 28px 18px; flex-direction: column; text-align: center; }
+    .section-header { padding: 56px 18px 36px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>◆</span> WebCraft Studio</a>
+  <a class="nav-cta" href="#contact">Get a Free Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <p class="hero-eyebrow">Web Design · E-Commerce · Digital Presence · South Africa</p>
+  <h1 class="hero-title">We Build<br><span class="accent">Websites</span><br>That Work</h1>
+  <p class="hero-subtitle">Real sites. Real clients. From e-commerce stores to luxury brands — browse our live work and see what we can do for your business.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#work">See Live Sites</a>
+    <a class="btn-ghost" href="#contact">Let's Talk</a>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Live Sites</span></div>
+  <div class="stat"><span class="stat-num">7</span><span class="stat-label">Days Avg Delivery</span></div>
+  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">SA-Based Clients</span></div>
+  <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Support</span></div>
+</div>
+
+<!-- PORTFOLIO -->
+<section id="work">
+  <div class="section-header">
+    <p class="section-eyebrow">Portfolio</p>
+    <h2 class="section-title">Our <span>Live</span> Work</h2>
+  </div>
+
+  <div class="portfolio-grid">
+
+    <!-- VAULT -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/VAULT/</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/VAULT/" loading="lazy" title="VAULT Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/VAULT/" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Digital Marketplace</span>
+        <h3 class="card-title">VAULT — Premium Knowledge Marketplace</h3>
+        <p class="card-desc">A sleek digital course marketplace selling expert-curated content across trading, e-commerce, design, AI and more. Features category filtering, a bundle section, and instant-access checkout flow.</p>
+        <div class="card-features">
+          <span class="feat-pill">Course Catalog</span>
+          <span class="feat-pill">Category Filter</span>
+          <span class="feat-pill">Bundle Deals</span>
+          <span class="feat-pill">Secure Checkout</span>
+          <span class="feat-pill">Dark UI</span>
+        </div>
+        <a href="https://jbweb1.github.io/VAULT/" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- WEBCRAFT PROFILE -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/profile/</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/profile/" loading="lazy" title="WebCraft Profile Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/profile/" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Web Design Agency</span>
+        <h3 class="card-title">WebCraft Studio — SA Web Design</h3>
+        <p class="card-desc">A premium agency profile site for a South African web design studio. Showcases services, pricing tiers, work samples, and a seamless quote request flow built to convert visitors into clients.</p>
+        <div class="card-features">
+          <span class="feat-pill">Services</span>
+          <span class="feat-pill">Pricing</span>
+          <span class="feat-pill">Portfolio</span>
+          <span class="feat-pill">Quote Form</span>
+          <span class="feat-pill">Conversion-Focused</span>
+        </div>
+        <a href="https://jbweb1.github.io/profile/" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- FRAGRANCE VITALITY -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/Fragrance-Vitality/</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/Fragrance-Vitality/" loading="lazy" title="Fragrance Vitality Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/Fragrance-Vitality/" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Luxury E-Commerce</span>
+        <h3 class="card-title">Fragrance Vitality — Luxury Perfumes</h3>
+        <p class="card-desc">An elegant luxury fragrance brand site with a full online shop. Crafted to evoke sophistication — clean product layouts, a curated shop page, and a brand story that builds desire before the purchase.</p>
+        <div class="card-features">
+          <span class="feat-pill">Online Shop</span>
+          <span class="feat-pill">Product Pages</span>
+          <span class="feat-pill">Luxury Branding</span>
+          <span class="feat-pill">Mobile-Ready</span>
+        </div>
+        <a href="https://jbweb1.github.io/Fragrance-Vitality/" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- EARTHBOUND -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/EarthBound/Drops.html</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/EarthBound/Drops.html" loading="lazy" title="EarthBound Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/EarthBound/Drops.html" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Streetwear Brand</span>
+        <h3 class="card-title">EarthBound — Clothing Drops</h3>
+        <p class="card-desc">A streetwear clothing brand's drop page featuring hoodies, tees, hats, denim and windbreakers. WhatsApp catalog integration for seamless direct purchasing — built for a young, style-conscious audience.</p>
+        <div class="card-features">
+          <span class="feat-pill">Product Drops</span>
+          <span class="feat-pill">WhatsApp Catalog</span>
+          <span class="feat-pill">Street Aesthetic</span>
+          <span class="feat-pill">Mobile-First</span>
+        </div>
+        <a href="https://jbweb1.github.io/EarthBound/Drops.html" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section style="background: rgba(30,42,59,0.15); position:relative; z-index:1;">
+  <div class="section-header">
+    <p class="section-eyebrow">Process</p>
+    <h2 class="section-title">How It <span>Works</span></h2>
+  </div>
+  <div class="process-wrap">
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="step-num">01</span>
+        <span class="step-icon">💬</span>
+        <h3 class="step-title">Discovery Call</h3>
+        <p class="step-desc">We learn your business, goals, and audience. 15 minutes, zero pressure, no hidden costs.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">02</span>
+        <span class="step-icon">🎨</span>
+        <h3 class="step-title">Design & Build</h3>
+        <p class="step-desc">We design and develop your site from scratch. Most projects are live in 7 days or less.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">03</span>
+        <span class="step-icon">🚀</span>
+        <h3 class="step-title">Launch</h3>
+        <p class="step-desc">Your site goes live. We handle hosting, domain setup, and make sure everything runs perfectly.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">04</span>
+        <span class="step-icon">📈</span>
+        <h3 class="step-title">Grow</h3>
+        <p class="step-desc">Optional: social media management and monthly updates to keep customers coming back.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <h2 class="cta-title">Ready to Get<br><span>Your Site?</span></h2>
+  <p class="cta-sub">Your competitors already have a website. Let's make yours the best one in the area.</p>
+  <div class="cta-actions">
+    <a class="btn-primary" href="mailto:hello@webcraft.co.za">Email Us Now</a>
+    <a class="btn-ghost" href="https://wa.me/27000000000" target="_blank">WhatsApp Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>◆</span> WebCraft Studio</div>
+  <p class="footer-copy">© 2026 WebCraft Studio. South Africa.</p>
+  <div class="footer-contact"><a href="mailto:hello@webcraft.co.za">hello@webcraft.co.za</a></div>
+</footer>
+
+</body>
+</html>
