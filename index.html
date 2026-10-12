@@ -266,7 +266,7 @@
   /* Card body */
   .card-body { padding: 22px 24px 26px; flex: 1; display: flex; flex-direction: column; }
   .card-tag {
-    display: inline-block; font-size: 0.6rem; letter-spacing: 0.18em;
+    display: inline-block; align-self: flex-start; font-size: 0.6rem; letter-spacing: 0.18em;
     text-transform: uppercase; color: var(--cyan);
     border: 1px solid rgba(0,212,255,0.28); padding: 3px 9px;
     margin-bottom: 11px; font-weight: 500;
@@ -297,6 +297,36 @@
   }
   .card-link:hover { gap: 13px; }
   .card-link svg { width: 13px; height: 13px; }
+
+  .section-sub {
+    max-width: 520px; margin: 18px auto 0;
+    font-size: 0.9rem; line-height: 1.7; color: var(--muted);
+  }
+
+  /* ── PLATFORM CARD ── */
+  .platform-hero {
+    height: 230px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 24px; gap: 10px;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 40%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 70%),
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px) 0 0 / 22px 22px,
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px) 0 0 / 22px 22px,
+      #0a0f1e;
+  }
+  .platform-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    letter-spacing: 0.08em; line-height: 1; color: var(--accent);
+    transition: transform 0.35s ease;
+  }
+  .site-card:hover .platform-name { transform: translateY(-4px); }
+  .platform-tagline { font-size: 0.85rem; color: var(--off-white); opacity: 0.85; }
+  .platform-stack {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-top: 6px;
+  }
 
   /* ── PROCESS ── */
   .process-wrap {
@@ -395,9 +425,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <p class="hero-eyebrow">Web Design · E-Commerce · Digital Presence · South Africa</p>
+  <p class="hero-eyebrow">Web Design · E-Commerce · Web Apps · South Africa</p>
   <h1 class="hero-title">We Build<br><span class="accent">Websites</span><br>That Work</h1>
-  <p class="hero-subtitle">Real sites. Real clients. From e-commerce stores to luxury brands — browse our live work and see what we can do for your business.</p>
+  <p class="hero-subtitle">Real sites. Real clients. From e-commerce stores and luxury brands to radio stations, schools and full-stack software — browse our live work and see what we can do for your business.</p>
   <div class="hero-actions">
     <a class="btn-primary" href="#work">See Live Sites</a>
     <a class="btn-ghost" href="#contact">Let's Talk</a>
@@ -410,7 +440,8 @@
 
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Live Sites</span></div>
+  <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Live Sites</span></div>
+  <div class="stat"><span class="stat-num">4</span><span class="stat-label">Software Platforms</span></div>
   <div class="stat"><span class="stat-num">7</span><span class="stat-label">Days Avg Delivery</span></div>
   <div class="stat"><span class="stat-num">100%</span><span class="stat-label">SA-Based Clients</span></div>
   <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Support</span></div>
@@ -424,6 +455,108 @@
   </div>
 
   <div class="portfolio-grid">
+
+    <!-- LUXE PRESTIGE UPHOLSTERY -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">luxeprestigeupholstery.store/</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://luxeprestigeupholstery.store/" loading="lazy" title="Luxe Prestige Upholstery Preview" scrolling="no"></iframe>
+        <a href="https://luxeprestigeupholstery.store/" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Craft &amp; Home Services</span>
+        <h3 class="card-title">Luxe Prestige — Custom Upholstery</h3>
+        <p class="card-desc">An animated single-page site for a South African upholstery studio offering custom couch design, reupholstery and restoration. Scroll-driven reveals walk visitors through the craft process and into a consultation booking form.</p>
+        <div class="card-features">
+          <span class="feat-pill">Custom Domain</span>
+          <span class="feat-pill">Scroll Animations</span>
+          <span class="feat-pill">Booking Form</span>
+          <span class="feat-pill">Process Story</span>
+          <span class="feat-pill">Nationwide</span>
+        </div>
+        <a href="https://luxeprestigeupholstery.store/" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- KC 107.7 FM -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/KC-107.7/</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/KC-107.7/" loading="lazy" title="KC 107.7 FM Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/KC-107.7/" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Community Radio</span>
+        <h3 class="card-title">KC 107.7 FM — Voice of the Paarl Valley</h3>
+        <p class="card-desc">A bold broadcast site for a trilingual community radio station. Live-listen player bar, on-air ticker, weekly show schedule, local news and an advertising section that turns 65,000+ weekly listeners into sponsor leads.</p>
+        <div class="card-features">
+          <span class="feat-pill">Live Player</span>
+          <span class="feat-pill">On-Air Ticker</span>
+          <span class="feat-pill">Show Schedule</span>
+          <span class="feat-pill">News</span>
+          <span class="feat-pill">Advertise With Us</span>
+        </div>
+        <a href="https://jbweb1.github.io/KC-107.7/" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- LUMORA -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/Lumora/</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/Lumora/" loading="lazy" title="Lumora Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/Lumora/" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Web App</span>
+        <h3 class="card-title">Lumora — Data Analysis Made Simple</h3>
+        <p class="card-desc">An installable browser app that explains spreadsheets in plain English. Drop in Excel or CSV and get automatic insights, auto-picked charts, significance tests, plain-English questions and guided lessons — with no data ever leaving the device.</p>
+        <div class="card-features">
+          <span class="feat-pill">Excel &amp; CSV</span>
+          <span class="feat-pill">Auto Insights</span>
+          <span class="feat-pill">Chart Builder</span>
+          <span class="feat-pill">Offline PWA</span>
+          <span class="feat-pill">Guided Lessons</span>
+        </div>
+        <a href="https://jbweb1.github.io/Lumora/" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
 
     <!-- VAULT -->
     <div class="site-card">
@@ -454,6 +587,208 @@
           <span class="feat-pill">Dark UI</span>
         </div>
         <a href="https://jbweb1.github.io/VAULT/" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- FRAGRANCE VITALITY -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/Fragrance-Vitality/</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/Fragrance-Vitality/" loading="lazy" title="Fragrance Vitality Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/Fragrance-Vitality/" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Luxury E-Commerce</span>
+        <h3 class="card-title">Fragrance Vitality — Luxury Perfumes</h3>
+        <p class="card-desc">An elegant luxury fragrance brand site with a full online shop. Crafted to evoke sophistication — clean product layouts, a curated shop page, and a brand story that builds desire before the purchase.</p>
+        <div class="card-features">
+          <span class="feat-pill">Online Shop</span>
+          <span class="feat-pill">Product Pages</span>
+          <span class="feat-pill">Luxury Branding</span>
+          <span class="feat-pill">Mobile-Ready</span>
+        </div>
+        <a href="https://jbweb1.github.io/Fragrance-Vitality/" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- PRIMORY SCHOOL -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/school/primory-school.html</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/school/primory-school.html" loading="lazy" title="Primory School Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/school/primory-school.html" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Education</span>
+        <h3 class="card-title">Primory School — Grade R to 7</h3>
+        <p class="card-desc">A warm, trustworthy primary school website built for parents. Clear values, the three academic phases, testimonials and an admissions flow with campus-tour booking — designed to answer every question a family asks before they apply.</p>
+        <div class="card-features">
+          <span class="feat-pill">Admissions</span>
+          <span class="feat-pill">Tour Booking</span>
+          <span class="feat-pill">Academic Phases</span>
+          <span class="feat-pill">Testimonials</span>
+          <span class="feat-pill">Scroll Reveals</span>
+        </div>
+        <a href="https://jbweb1.github.io/school/primory-school.html" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- CANDY FARM TYCOON -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/Candyfarmtycoon/</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/Candyfarmtycoon/" loading="lazy" title="Candy Farm Tycoon Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/Candyfarmtycoon/" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Game Launch Page</span>
+        <h3 class="card-title">Candy Farm Tycoon — Fortnite UEFN</h3>
+        <p class="card-desc">A vivid launch site for a Fortnite Creative tycoon map. Rich lore around Saccharion, the Tree of Creation, a nine-tier rarity breakdown across 140+ candy trees, and a direct "Play on Fortnite" call to action.</p>
+        <div class="card-features">
+          <span class="feat-pill">Game Lore</span>
+          <span class="feat-pill">Rarity Tiers</span>
+          <span class="feat-pill">CSS Illustration</span>
+          <span class="feat-pill">Particle FX</span>
+          <span class="feat-pill">Play Now CTA</span>
+        </div>
+        <a href="https://jbweb1.github.io/Candyfarmtycoon/" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 1UP CASH & CARRY -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/oneup/</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/oneup/" loading="lazy" title="1UP Cash &amp; Carry Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/oneup/" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Wholesale E-Commerce</span>
+        <h3 class="card-title">1UP Cash &amp; Carry — Online Shopping</h3>
+        <p class="card-desc">An online store for a Cape Town wholesale and retail chain. Category browsing, a slide-out cart, eight-branch locator and same-day delivery messaging built to move bulk orders online.</p>
+        <div class="card-features">
+          <span class="feat-pill">Product Grid</span>
+          <span class="feat-pill">Slide-Out Cart</span>
+          <span class="feat-pill">Branch Locator</span>
+          <span class="feat-pill">Same-Day Delivery</span>
+          <span class="feat-pill">Newsletter</span>
+        </div>
+        <a href="https://jbweb1.github.io/oneup/" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- EARTHBOUND -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/EarthBound/Drops.html</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/EarthBound/Drops.html" loading="lazy" title="EarthBound Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/EarthBound/Drops.html" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Streetwear Brand</span>
+        <h3 class="card-title">EarthBound — Clothing Drops</h3>
+        <p class="card-desc">A streetwear clothing brand's drop page featuring hoodies, tees, hats, denim and windbreakers. WhatsApp catalog integration for seamless direct purchasing — built for a young, style-conscious audience.</p>
+        <div class="card-features">
+          <span class="feat-pill">Product Drops</span>
+          <span class="feat-pill">WhatsApp Catalog</span>
+          <span class="feat-pill">Street Aesthetic</span>
+          <span class="feat-pill">Mobile-First</span>
+        </div>
+        <a href="https://jbweb1.github.io/EarthBound/Drops.html" target="_blank" class="card-link">
+          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- BARGAIN PC'S -->
+    <div class="site-card">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">jbweb1.github.io/Bargain-PC/</div>
+      </div>
+      <div class="preview-wrapper">
+        <iframe src="https://jbweb1.github.io/Bargain-PC/" loading="lazy" title="Bargain PC's Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/Bargain-PC/" target="_blank" class="preview-overlay">
+          <span class="overlay-btn">
+            Visit Live Site
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">PC Hardware Store</span>
+        <h3 class="card-title">Bargain PC's — Parts &amp; Builds</h3>
+        <p class="card-desc">A multi-page computer hardware store covering CPUs, GPUs, RAM, storage, cooling, cases and peripherals. Category pages, product detail views and a working cart, all priced in rand.</p>
+        <div class="card-features">
+          <span class="feat-pill">Multi-Page Shop</span>
+          <span class="feat-pill">Product Details</span>
+          <span class="feat-pill">Shopping Cart</span>
+          <span class="feat-pill">Category Pages</span>
+          <span class="feat-pill">Rand Pricing</span>
+        </div>
+        <a href="https://jbweb1.github.io/Bargain-PC/" target="_blank" class="card-link">
           View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -493,17 +828,17 @@
       </div>
     </div>
 
-    <!-- FRAGRANCE VITALITY -->
+    <!-- INDUSLINK -->
     <div class="site-card">
       <div class="browser-chrome">
         <div class="chrome-dots">
           <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
         </div>
-        <div class="chrome-bar">jbweb1.github.io/Fragrance-Vitality/</div>
+        <div class="chrome-bar">jbweb1.github.io/IndusLink/</div>
       </div>
       <div class="preview-wrapper">
-        <iframe src="https://jbweb1.github.io/Fragrance-Vitality/" loading="lazy" title="Fragrance Vitality Preview" scrolling="no"></iframe>
-        <a href="https://jbweb1.github.io/Fragrance-Vitality/" target="_blank" class="preview-overlay">
+        <iframe src="https://jbweb1.github.io/IndusLink/" loading="lazy" title="IndusLink Preview" scrolling="no"></iframe>
+        <a href="https://jbweb1.github.io/IndusLink/" target="_blank" class="preview-overlay">
           <span class="overlay-btn">
             Visit Live Site
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -511,50 +846,149 @@
         </a>
       </div>
       <div class="card-body">
-        <span class="card-tag">Luxury E-Commerce</span>
-        <h3 class="card-title">Fragrance Vitality — Luxury Perfumes</h3>
-        <p class="card-desc">An elegant luxury fragrance brand site with a full online shop. Crafted to evoke sophistication — clean product layouts, a curated shop page, and a brand story that builds desire before the purchase.</p>
+        <span class="card-tag">Marketing Agency</span>
+        <h3 class="card-title">IndusLink — Business Marketing</h3>
+        <p class="card-desc">A marketing agency site that connects businesses with customers. A rotating brand showcase highlights campaigns for sneakers, Apple products and digital platforms, backed by clear service and contact sections.</p>
         <div class="card-features">
-          <span class="feat-pill">Online Shop</span>
-          <span class="feat-pill">Product Pages</span>
-          <span class="feat-pill">Luxury Branding</span>
-          <span class="feat-pill">Mobile-Ready</span>
+          <span class="feat-pill">Brand Carousel</span>
+          <span class="feat-pill">Services</span>
+          <span class="feat-pill">Campaign Showcase</span>
+          <span class="feat-pill">Contact</span>
         </div>
-        <a href="https://jbweb1.github.io/Fragrance-Vitality/" target="_blank" class="card-link">
+        <a href="https://jbweb1.github.io/IndusLink/" target="_blank" class="card-link">
           View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- EARTHBOUND -->
-    <div class="site-card">
+<!-- PLATFORMS -->
+<section id="platforms">
+  <div class="section-header">
+    <p class="section-eyebrow">Software</p>
+    <h2 class="section-title">Platforms <span>&amp;</span> Apps</h2>
+    <p class="section-sub">Beyond websites — full-stack products with accounts, databases, payments and AI, built for South African businesses.</p>
+  </div>
+
+  <div class="portfolio-grid">
+
+    <!-- VISTORA -->
+    <div class="site-card platform-card" style="--accent: #E0A458;">
       <div class="browser-chrome">
         <div class="chrome-dots">
           <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
         </div>
-        <div class="chrome-bar">jbweb1.github.io/EarthBound/Drops.html</div>
+        <div class="chrome-bar">github.com/JBWeb1/SPATIORA</div>
       </div>
-      <div class="preview-wrapper">
-        <iframe src="https://jbweb1.github.io/EarthBound/Drops.html" loading="lazy" title="EarthBound Preview" scrolling="no"></iframe>
-        <a href="https://jbweb1.github.io/EarthBound/Drops.html" target="_blank" class="preview-overlay">
-          <span class="overlay-btn">
-            Visit Live Site
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </span>
-        </a>
+      <div class="platform-hero">
+        <span class="platform-name">VISTORA</span>
+        <span class="platform-tagline">See the space. Shape the future.</span>
+        <span class="platform-stack">React · three.js · Node · Claude AI</span>
       </div>
       <div class="card-body">
-        <span class="card-tag">Streetwear Brand</span>
-        <h3 class="card-title">EarthBound — Clothing Drops</h3>
-        <p class="card-desc">A streetwear clothing brand's drop page featuring hoodies, tees, hats, denim and windbreakers. WhatsApp catalog integration for seamless direct purchasing — built for a young, style-conscious audience.</p>
+        <span class="card-tag">AI Interior Design</span>
+        <h3 class="card-title">VISTORA — AI Home Renovation Platform</h3>
+        <p class="card-desc">Upload a room photo and get AI redesigns in ten styles, then edit it in 3D, pick finishes, cost the renovation in rand with VAT and provincial pricing, shop real products and size a load-shedding backup system.</p>
         <div class="card-features">
-          <span class="feat-pill">Product Drops</span>
-          <span class="feat-pill">WhatsApp Catalog</span>
-          <span class="feat-pill">Street Aesthetic</span>
-          <span class="feat-pill">Mobile-First</span>
+          <span class="feat-pill">AI Redesigns</span>
+          <span class="feat-pill">3D Room Builder</span>
+          <span class="feat-pill">Renovation Calculator</span>
+          <span class="feat-pill">Solar Planner</span>
+          <span class="feat-pill">Pro CRM &amp; Quotes</span>
         </div>
-        <a href="https://jbweb1.github.io/EarthBound/Drops.html" target="_blank" class="card-link">
-          View Live Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="https://github.com/JBWeb1/SPATIORA" target="_blank" class="card-link">
+          View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- EDGEFORGE -->
+    <div class="site-card platform-card" style="--accent: #00D4FF;">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">github.com/JBWeb1/EDGEFORGE</div>
+      </div>
+      <div class="platform-hero">
+        <span class="platform-name">EDGEFORGE</span>
+        <span class="platform-tagline">Master your edge.</span>
+        <span class="platform-stack">Next.js · TypeScript · Prisma · PostgreSQL</span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Trading Analytics</span>
+        <h3 class="card-title">EDGEFORGE — Trading Journal &amp; Analytics</h3>
+        <p class="card-desc">A trading intelligence platform built on an accurate trade journal: automatic P&amp;L and R-multiples, equity curve, P&amp;L calendar, risk rules with breach detection, broker CSV import and live cross-device sync.</p>
+        <div class="card-features">
+          <span class="feat-pill">Trade Journal</span>
+          <span class="feat-pill">Equity Curve</span>
+          <span class="feat-pill">Risk Guardrails</span>
+          <span class="feat-pill">CSV Import</span>
+          <span class="feat-pill">Position Sizer</span>
+        </div>
+        <a href="https://github.com/JBWeb1/EDGEFORGE" target="_blank" class="card-link">
+          View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- NEXUS LEDGER -->
+    <div class="site-card platform-card" style="--accent: #4ADE80;">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">github.com/JBWeb1/Nexus</div>
+      </div>
+      <div class="platform-hero">
+        <span class="platform-name">NEXUS LEDGER</span>
+        <span class="platform-tagline">Accounting for SA businesses and their accountants.</span>
+        <span class="platform-stack">Next.js 15 · React 19 · Prisma · PostgreSQL</span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Accounting SaaS</span>
+        <h3 class="card-title">Nexus Ledger — SA Accounting</h3>
+        <p class="card-desc">A cloud accounting platform for South African businesses and their accountants, with secure sign-in, dashboards and charts, document storage, email delivery and Paystack subscription billing.</p>
+        <div class="card-features">
+          <span class="feat-pill">Multi-User Auth</span>
+          <span class="feat-pill">Dashboards</span>
+          <span class="feat-pill">Paystack Billing</span>
+          <span class="feat-pill">Document Storage</span>
+          <span class="feat-pill">Email</span>
+        </div>
+        <a href="https://github.com/JBWeb1/Nexus" target="_blank" class="card-link">
+          View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- DIAGNOSTICOS -->
+    <div class="site-card platform-card" style="--accent: #F43F5E;">
+      <div class="browser-chrome">
+        <div class="chrome-dots">
+          <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        </div>
+        <div class="chrome-bar">github.com/JBWeb1/OBD2</div>
+      </div>
+      <div class="platform-hero">
+        <span class="platform-name">DiagnosticOS</span>
+        <span class="platform-tagline">Live OBD2 scanning, right in the browser.</span>
+        <span class="platform-stack">Node · Express · PostgreSQL · Web Serial</span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Automotive SaaS</span>
+        <h3 class="card-title">DiagnosticOS — Workshop Management</h3>
+        <p class="card-desc">Multi-tenant SaaS for dealerships and tuning shops: live OBD2 scanning over a USB ELM327 adapter, fault codes, customers and vehicles, remap logs, inspections, invoices and quotes, history reports and PayFast subscriptions.</p>
+        <div class="card-features">
+          <span class="feat-pill">Live OBD2 Scan</span>
+          <span class="feat-pill">Fault Codes</span>
+          <span class="feat-pill">Invoices &amp; Quotes</span>
+          <span class="feat-pill">Team Accounts</span>
+          <span class="feat-pill">2,300+ Models</span>
+        </div>
+        <a href="https://github.com/JBWeb1/OBD2" target="_blank" class="card-link">
+          View Project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
